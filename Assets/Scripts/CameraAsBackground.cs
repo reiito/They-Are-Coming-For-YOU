@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CameraAsBackground : MonoBehaviour
 {
+    public GameController gameController;
+
     private RawImage image;
     private WebCamTexture cam;
 
@@ -22,6 +24,9 @@ public class CameraAsBackground : MonoBehaviour
 
     private void Update()
     {
+        if (gameController.gameOver)
+            return;
+
         if (cam.width < 100)
         {
             return;

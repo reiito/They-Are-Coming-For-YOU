@@ -9,6 +9,7 @@ public class Swipe : MonoBehaviour
     private Vector2 startTouch, swipeDelta;
 
     public Vector2 SwipeDelta { get { return swipeDelta; } }
+    public bool Tap { get { return tap; } }
     public bool SwipeUp { get { return swipeUp; } }
     public bool SwipeDown { get { return swipeDown; } }
     public bool SwipeLeft { get { return swipeLeft; } }

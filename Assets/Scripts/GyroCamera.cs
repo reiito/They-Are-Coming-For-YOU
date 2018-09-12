@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GyroCamera : MonoBehaviour
 {
+    public GameController gameController;
 
     private Gyroscope gyro;
     private bool gyroSupported;
@@ -37,6 +38,9 @@ public class GyroCamera : MonoBehaviour
 
     private void Update()
     {
+        if (gameController.gameOver)
+            return;
+
         if (gyroSupported)
         {
             if (startY == 0)

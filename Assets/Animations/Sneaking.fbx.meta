@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 18f29db4628b0b641848a848764055ae
-timeCreated: 1536664951
+guid: 63df21269597fef4fa4979131140d648
+timeCreated: 1536740872
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -137,7 +137,7 @@ ModelImporter:
     400126: mixamorig:Spine1
     400128: mixamorig:Spine2
     400130: //RootNode
-    7400000: Sneek
+    7400000: Sneaking
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -167,7 +167,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Sneek
+      name: Sneaking
       takeName: mixamo.com
       firstFrame: 0
       lastFrame: 29
