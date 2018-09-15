@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
                 if (i.GetComponent<Visibility>().canKill)
                 {
                     enemies.Remove(i);
-                    Destroy(i);
+                    Destroy(i.transform.parent.gameObject);
                 }
             }
         }
@@ -76,8 +76,8 @@ public class GameController : MonoBehaviour
 
             yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
 
-            minSpawnTime -= minRate;
-            maxSpawnTime -= maxRate;
+            //minSpawnTime -= minRate;
+            //maxSpawnTime -= maxRate;
         }
     }
 }

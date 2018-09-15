@@ -24,9 +24,6 @@ public class CameraAsBackground : MonoBehaviour
 
     private void Update()
     {
-        if (gameController.gameOver)
-            return;
-
         if (cam.width < 100)
         {
             return;

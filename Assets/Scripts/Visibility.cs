@@ -12,12 +12,13 @@ public class Visibility : MonoBehaviour
 
     Coroutine visibilityRefresher;
 
-    public AudioSource[] ambientAudio;
+    AudioSource ambientAudio;
 
     private void Start()
     {
         meshRenderer = GetComponent<SkinnedMeshRenderer>();
         parentScript.followPlayer = meshRenderer.isVisible;
+        ambientAudio = GetComponent<AudioSource>();
         visibilityRefresher = StartCoroutine(RefreshVisibility());
     }
 
@@ -28,22 +29,8 @@ public class Visibility : MonoBehaviour
             StopAllCoroutines();
             parentScript.animator.speed = 0;
             parentScript.followPlayer = false;
-            ambientAudio[0].Pause();
+            ambientAudio.Stop();
         }
-
-        // Just in case
-        //if (meshRenderer.isVisible)
-        //{
-        //    parentScript.animator.speed = 0;
-        //    parentScript.followPlayer = false;
-        //    audioSource.Pause();
-        //}
-        //else if (meshRenderer.isVisible)
-        //{
-        //    parentScript.animator.speed = 1;
-        //    parentScript.followPlayer = true;
-        //    audioSource.UnPause();
-        //}
     }
 
     private void OnBecameVisible()
@@ -56,7 +43,7 @@ public class Visibility : MonoBehaviour
         {
             parentScript.animator.speed = 0;
             parentScript.followPlayer = false;
-            ambientAudio[0].Pause();
+            ambientAudio.Pause();
         }
     }
 
@@ -65,7 +52,7 @@ public class Visibility : MonoBehaviour
         parentScript.animator.speed = 1;
         canKill = false;
         parentScript.followPlayer = true;
-        ambientAudio[0].UnPause();
+        ambientAudio.UnPause();
     }
 
     IEnumerator RefreshVisibility()
@@ -74,11 +61,13 @@ public class Visibility : MonoBehaviour
         {
             parentScript.animator.speed = 1;
             parentScript.followPlayer = true;
+            ambientAudio.Pause();
         }
         else
         {
             parentScript.animator.speed = 0;
             parentScript.followPlayer = false;
+            ambientAudio.UnPause();
         }
 
         yield return new WaitForSeconds(2.5f);

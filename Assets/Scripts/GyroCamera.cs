@@ -38,9 +38,6 @@ public class GyroCamera : MonoBehaviour
 
     private void Update()
     {
-        if (gameController.gameOver)
-            return;
-
         if (gyroSupported)
         {
             if (startY == 0)

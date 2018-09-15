@@ -30,7 +30,10 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         if (gameController.gameOver)
+        {
+            animator.speed = 0;
             return;
+        }
 
         if (followPlayer)
         {
